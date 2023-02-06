@@ -2,38 +2,91 @@ import styled from "styled-components";
 import pixel_to_viewport from "../../utils/pixel_to_viewport";
 
 export const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: ${pixel_to_viewport(32)};
-  max-width: 100%;
-
-  @media (min-width: 1024px) {
-    flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
 export const Box = styled.div`
-  display: flex;
-  width: ${pixel_to_viewport(320, 320)};
-  min-height: ${pixel_to_viewport(200, 320)};
-  flex-direction: column;
-  padding: ${pixel_to_viewport(20)};
-  margin: ${pixel_to_viewport(5)};
-  // margin: ${props => props.mg};
   background-color: ${props => props.bgColor};
-  height: 100%;
-
-  @media (min-width: 601px) {
-    width: ${pixel_to_viewport(320, 768)};
-    min-height: ${pixel_to_viewport(200, 768)};
-    height: 100%;
+  
+  margin: 0.1rem;
+  border: 1px solid;
+  &.item-1 {
+    grid-column: 1 / 3;
+    grid-row: 1 / span 2 ;
   }
+  &.item-2 {
+    grid-column: 3 / span 3;
+    grid-row: 1 / 2;
+  }
+  &.item-3 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+  &.item-4 {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+  }
+  &.item-5 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+  &.item-6 {
+    grid-column: 1 / 2;
+    grid-row: 4 / 6;
+  }
+  &.item-7 {
+    grid-column: 2 / span 2;
+    grid-row: 3 / span 2;
+  }
+  &.item-8 {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+  }
+  &.item-9 {
+    grid-column: 4 / 5;
+    grid-row: 4 / 5;
+  }
+  @media only screen and (max-width: 600px) {
+    &.item-1 {
+      grid-column: 1 / span 4;
+      grid-row: 1 / 2;
+    }
+    &.item-2 {
+      grid-column: 1 / span 4;
+      grid-row: 3 / 4 ;
+    }
+    &.item-3 {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+    &.item-4 {
+      grid-column: 2 / 4;
+      grid-row: 2 / 3;
+    }
+    &.item-5 {
+      grid-row: 5 / 6;
+    }
+    &.item-6 {
+      grid-row: 6 / 7;
+    }
+    &.item-7 {
+      grid-column: 1 / span 4;
+      grid-row: 4 / 5;
 
-  @media (min-width: 768px) {
-    width: ${pixel_to_viewport(500)};
-    min-height: ${pixel_to_viewport(300)};
-    height: 100%;
+    }
+    &.item-8 {
+      grid-column-start: 2;
+      grid-row: 5 / 6;
+    }
+    &.item-9 {
+      grid-row: 6 / 7;
+      grid-column-start: 2;
+    }
   }
 `;
 

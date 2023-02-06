@@ -17,7 +17,7 @@ export default function Home({boxData}) {
 
      <Container>
       {boxData.map(box => (
-        <Box key={box.id} bgColor={box.bgColor} mg={box.mg} onClick={handleClick} style={{backgroundColor: isActive ? color : '' }}>
+        <Box key={box.id} bgColor={box.bgColor} onClick={handleClick} style={{backgroundColor: isActive ? color : '' }} className={`item-${box.id}`}>
           <BoxTitle>{box.title}</BoxTitle>
           <BoxText>{box.text}</BoxText>
         </Box>
